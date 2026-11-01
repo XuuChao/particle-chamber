@@ -1,13 +1,17 @@
 # Particle Chamber
 
-A small browser artwork for playing with particles. I want to recreate the
-chamber-like display in my reference video, with shape changes and pointer interaction.
+A browser artwork for people who want to play with shapes. Draw an outline,
+then turn it into a rounded, three-dimensional particle sculpture.
 
-一个可以玩粒子的网页作品。我想参考视频里的展柜效果，加入形态切换和鼠标互动。
+一个可以玩图形的网页作品。画一个轮廓，就能生成前后鼓起的立体粒子形状。
 
-This is the initial setup. The particle interaction, screenshot and user trial are still to do.
+![A hand-drawn heart turned into a glowing particle sculpture inside a dark display case](docs/screenshot.png)
 
-目前只完成项目骨架，粒子交互、截图和实际试用还没有完成。
+Choose **Draw your own**, draw one outline, then **Make particles**. Move the
+pointer to disturb it; drag or use the canvas arrow keys to rotate. **Pause**
+stops movement. **Clear** erases the drawing; **Reset** restores the sphere.
+
+点击 **Draw your own** 画轮廓，再点 **Make particles**。移动鼠标扰动粒子，拖动或聚焦展柜后按方向键旋转。**Pause** 暂停，**Clear** 清空画板，**Reset** 恢复球体。
 
 ## Run / 运行
 
@@ -16,15 +20,15 @@ With Node.js 18 or later, run from this folder. No packages need installing.
 使用 Node.js 18 或以上版本，在本文件夹运行，无需安装额外依赖。
 
 ```bash
-npm run dev
+node server.mjs
 ```
 
 Open / 打开：<http://127.0.0.1:8000>. Stop / 停止：Ctrl+C.
 
-## Reference / 参考
+## Limits / 局限
 
-Visual reference: the locally supplied Bilibili clip named
-`gpt6astra粒子效果_哔哩哔哩_bilibili.mp4`. The creator and original link still need
-confirming. The video is not included in this repository.
+One outline at a time; thickness is estimated. Requires WebGL 2. Drawings stay
+in memory and disappear on reload. Graphics assets are local, so it runs without
+internet. A real user trial is still to do.
 
-视觉参考是提供的 B 站粒子效果视频，作者和原始链接待确认。仓库没有收录视频。
+一次画一个轮廓，厚度由程序估算。需要 WebGL 2，刷新后绘画不会保留。图形资源都在本地，可以断网运行。实际用户试用还没有完成。
