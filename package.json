@@ -1,0 +1,13 @@
+{
+  "name": "particle-chamber",
+  "version": "0.1.0",
+  "private": true,
+  "description": "An interactive particle artwork for SD5913 Assignment 3.",
+  "type": "module",
+  "scripts": {
+    "dev": "node server.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
