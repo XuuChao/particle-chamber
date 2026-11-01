@@ -60,7 +60,7 @@ try {
   shell.dataset.ready = 'true';
   for (const id of ['draw-open', 'pause', 'reset']) get(id).disabled = false;
   updatePause();
-  announce(chamber.paused ? 'Paused · reduced motion' : 'Live · move to disturb');
+  announce(chamber.paused ? 'Paused · reduced motion' : 'Live · move to stir');
 
   drawButton.addEventListener('click', () => showPanel(true));
   get('draw-close').addEventListener('click', () => showPanel(false));
@@ -72,8 +72,6 @@ try {
     try {
       const positions = contourVolume(pad.points, chamber.count);
       chamber.setShape(positions);
-      get('shape-name').textContent = 'Your shape';
-      get('shape-description').innerHTML = 'Your outline, given volume.<br>Drag to see another side.';
       showPanel(false);
       announce(chamber.paused ? 'Shape created · paused' : 'Shape created');
     } catch (error) { drawingMessage(error.message, true); }
@@ -87,14 +85,12 @@ try {
     chamber.setPaused(reducedMotion.matches);
     chamber.reset();
     updatePause();
-    get('shape-name').textContent = 'Sphere';
-    get('shape-description').innerHTML = 'A small disturbance.<br>A thousand possibilities.';
     showPanel(false, false);
-    announce(chamber.paused ? 'Reset · paused' : 'Reset · sphere restored');
+    announce(chamber.paused ? 'Reset · paused' : 'Reset · mist restored');
   });
   reducedMotion.addEventListener('change', event => {
     if (event.matches) { chamber.setPaused(true); updatePause(); }
   });
-} catch {
-  fail('This experience needs WebGL 2. Enable graphics acceleration or try another browser, then reload.');
+} catch (error) {
+  fail(error.message || 'This experience needs WebGL 2. Enable graphics acceleration or try another browser, then reload.');
 }

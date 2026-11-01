@@ -13,16 +13,13 @@ button:focus-visible, a:focus-visible, canvas:focus-visible { outline: 2px solid
 .masthead { position: absolute; top: 34px; left: 4.4%; right: 4.4%; display: flex; justify-content: space-between; align-items: center; pointer-events: none; }
 .wordmark { display: flex; align-items: center; gap: 13px; color: #e9eff1; text-decoration: none; font-size: 11px; line-height: 1.35; font-weight: 600; letter-spacing: .14em; pointer-events: auto; }
 .brand-icon { font-size: 34px; font-weight: 400; }
-.edition { color: #8496a3; font: 10px monospace; letter-spacing: .14em; }
-.edition-year { margin-left: 22px; color: #59707f; }
-.sculpture-label { position: absolute; top: 30%; right: 5.5%; width: 214px; }
 .eyebrow { margin: 0 0 14px; color: #819aa9; font: 9px monospace; letter-spacing: .16em; }
-h1 { margin: 0; font-size: clamp(40px, 4.8vw, 65px); font-weight: 400; letter-spacing: -.065em; line-height: 1.1; }
-.label-rule { width: 33px; height: 1px; margin-top: 23px; background: #748d9d; }
-#shape-description { font-size: 12px; line-height: 1.8; color: #93a6b3; margin: 20px 0 28px; }
-.draw-link { width: 100%; padding: 15px 0; background: none; border: 0; border-top: 1px solid #788fa336; border-bottom: 1px solid #788fa336; display: flex; justify-content: space-between; color: #d4e8ee; font-size: 12px; text-align: left; }
-.draw-link:hover { color: white; border-color: #a9d0de80; }
-.draw-link span { font-size: 20px; line-height: 12px; }
+.drawing-entry { position: absolute; right: 5.5%; top: 44%; width: 205px; }
+.draw-button { display: flex; align-items: center; justify-content: space-between; width: 100%; min-height: 62px; padding: 17px 2px; border: 0; border-top: 1px solid #9db7c13d; border-bottom: 1px solid #9db7c13d; border-radius: 0; background: transparent; color: #d5e5eb; text-align: left; }
+.draw-button-label { font-size: 12px; font-weight: 500; letter-spacing: .07em; }
+.draw-button-arrow { font-size: 24px; line-height: 1; color: #8faab8; }
+.draw-button:hover { color: #fff; border-color: #c1dbe190; background: #c1dbe106; }
+.draw-button:hover .draw-button-arrow { color: #e5f5f8; }
 .controls { position: absolute; left: 4.4%; right: 4.4%; bottom: 33px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
 .control-buttons { display: flex; gap: 26px; }
 .control-button { display: flex; gap: 10px; align-items: center; padding: 10px 0; border: 0; background: none; color: #b3c4cf; font-size: 11px; }
@@ -35,7 +32,7 @@ h1 { margin: 0; font-size: clamp(40px, 4.8vw, 65px); font-weight: 400; letter-sp
 .status-dot { width: 5px; height: 5px; background: #a8d8d9; border-radius: 50%; box-shadow: 0 0 8px #b8eaf944; }
 .is-paused .status-dot { background: #a69378; }
 .drawing-panel { position: absolute; top: 18%; right: 4.4%; width: 326px; padding: 25px; background: #101b24f5; border: 1px solid #7c9eae4a; box-shadow: 0 20px 80px #0007; border-radius: 2px; }
-.is-drawing .sculpture-label { visibility: hidden; }
+.is-drawing .drawing-entry { visibility: hidden; }
 .panel-heading { display: flex; justify-content: space-between; align-items: flex-start; }
 .panel-heading .eyebrow { margin-bottom: 9px; }
 h2 { font-size: 24px; font-weight: 400; letter-spacing: -.04em; margin: 0; }
@@ -59,22 +56,22 @@ h2 { font-size: 24px; font-weight: 400; letter-spacing: -.04em; margin: 0; }
 .load-state .solid-button { margin-top: 18px; }
 .noscript { position: absolute; inset: 0; z-index: 6; display: grid; place-items: center; background: #080d12; padding: 32px; text-align: center; }
 @media (max-width: 1000px) {
-  .sculpture-label { right: 4.4%; width: 170px; }
+  .drawing-entry { right: 4.4%; width: 168px; }
   .gesture-hint { font-size: 10px; }
   .drawing-panel { width: 300px; }
+}
+@media (min-width: 701px) {
+  .is-drawing .stage { right: min(350px, 32vw); }
 }
 @media (max-width: 700px) {
   .experience { min-height: 600px; }
   .masthead { top: 23px; left: 22px; right: 22px; }
   .wordmark { font-size: 9px; gap: 9px; }
   .brand-icon { font-size: 28px; }
-  .edition { font-size: 8px; letter-spacing: .07em; }
-  .edition-year { display: none; }
-  .sculpture-label { top: 112px; right: 24px; width: 150px; }
-  .sculpture-label .eyebrow { font-size: 8px; }
-  h1 { font-size: 41px; }
-  .label-rule, #shape-description { display: none; }
-  .draw-link { margin-top: 20px; padding: 12px 0; font-size: 11px; }
+  .drawing-entry { top: 112px; right: 24px; width: 158px; }
+  .draw-button { min-height: 50px; padding: 13px 1px; }
+  .draw-button-label { font-size: 11px; }
+  .draw-button-arrow { font-size: 21px; }
   .controls { left: 24px; right: 24px; bottom: 22px; flex-wrap: wrap; gap: 14px; }
   .control-buttons { gap: 25px; }
   .status { min-width: 0; font-size: 9px; }
@@ -95,7 +92,6 @@ h2 { font-size: 24px; font-weight: 400; letter-spacing: -.04em; margin: 0; }
 @media (max-height: 640px) and (min-width: 701px) {
   .drawing-panel { top: 85px; padding: 18px; }
   .drawing-surface { height: 160px; }
-  .sculpture-label { top: 24%; }
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; }

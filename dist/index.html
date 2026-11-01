@@ -8,24 +8,24 @@
     <title>Particle Chamber — Draw something into being</title>
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='9' fill='%23c7e5ed'/%3E%3C/svg%3E">
     <link rel="stylesheet" href="./style.css">
+    <script type="importmap">
+      { "imports": { "three": "./vendor/three.module.js", "three/addons/": "./vendor/addons/" } }
+    </script>
     <script type="module" src="./app.js"></script>
   </head>
   <body>
     <main class="experience" id="experience">
       <div class="stage" id="stage">
-        <canvas id="scene" tabindex="0" aria-label="Interactive particle sculpture. Move to disturb it, drag to rotate, or use the arrow keys to rotate."></canvas>
+        <canvas id="scene" tabindex="0" aria-label="Interactive particle sculpture. Move to stir it, drag or use the arrow keys to look around the cabinet."></canvas>
       </div>
       <header class="masthead">
         <a class="wordmark" href="./" aria-label="Particle Chamber home"><span class="brand-icon" aria-hidden="true">✳</span><span>PARTICLE<br>CHAMBER</span></a>
-        <span class="edition">AN INTERACTIVE STUDY <span class="edition-year">/ 2026</span></span>
       </header>
-      <section class="sculpture-label" aria-labelledby="shape-name">
-        <p class="eyebrow">A FORM MADE OF LIGHT</p>
-        <h1 id="shape-name">Sphere</h1>
-        <div class="label-rule"></div>
-        <p id="shape-description">A small disturbance.<br>A thousand possibilities.</p>
-        <button class="draw-link" id="draw-open" type="button" aria-expanded="false" aria-controls="drawing-panel" disabled>Draw your own <span aria-hidden="true">↗</span></button>
-      </section>
+      <aside class="drawing-entry" aria-label="Create your own shape">
+        <button class="draw-button" id="draw-open" type="button" aria-expanded="false" aria-controls="drawing-panel" disabled>
+          <span class="draw-button-label">Draw a shape</span><span class="draw-button-arrow" aria-hidden="true">↗</span>
+        </button>
+      </aside>
       <section class="drawing-panel" id="drawing-panel" aria-labelledby="drawing-title" hidden>
         <div class="panel-heading">
           <div><p class="eyebrow">YOUR TURN</p><h2 id="drawing-title">Give it a shape.</h2></div>
@@ -51,7 +51,7 @@
           <button class="control-button" id="pause" type="button" aria-pressed="false" disabled><span id="pause-icon" aria-hidden="true">Ⅱ</span> <span id="pause-label">Pause</span></button>
           <button class="control-button" id="reset" type="button" disabled><span aria-hidden="true">↺</span> Reset</button>
         </div>
-        <p class="gesture-hint"><span class="hint-desktop">Move to disturb <i>·</i> Drag to rotate</span><span class="hint-touch">Drag to rotate <i>·</i> Draw your own shape</span></p>
+        <p class="gesture-hint"><span class="hint-desktop">Move to stir <i>·</i> Let it settle <i>·</i> Drag to rotate</span><span class="hint-touch">Drag to rotate <i>·</i> Draw a shape</span></p>
         <p class="status" id="status" role="status"><span class="status-dot" aria-hidden="true"></span><span id="status-text">Starting</span></p>
       </footer>
       <noscript><div class="noscript">Please enable JavaScript to explore the particle chamber.</div></noscript>

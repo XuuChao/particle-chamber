@@ -1,34 +1,32 @@
 # Particle Chamber
 
-A browser artwork for people who want to play with shapes. Draw an outline,
-then turn it into a rounded, three-dimensional particle sculpture.
-
-一个可以玩图形的网页作品。画一个轮廓，就能生成前后鼓起的立体粒子形状。
+A small browser artwork for drawing and playing with particles. Sketch an
+outline to make a rounded 3D shape, then move the mouse through it.
 
 ![A hand-drawn heart turned into a glowing particle sculpture inside a dark display case](docs/screenshot.png)
 
-Choose **Draw your own**, draw one outline, then **Make particles**. Move the
-pointer to disturb it; drag or use the canvas arrow keys to rotate. **Pause**
-stops movement. **Clear** erases the drawing; **Reset** restores the sphere.
+[Default form](docs/default.png) · [Interaction recording](docs/interaction.webm)
 
-点击 **Draw your own** 画轮廓，再点 **Make particles**。移动鼠标扰动粒子，拖动或聚焦展柜后按方向键旋转。**Pause** 暂停，**Clear** 清空画板，**Reset** 恢复球体。
+Click **Draw a shape** at the side, draw one outline, then **Make particles**.
+The particles keep flowing; moving the mouse carries nearby particles along.
+Drawn shapes drift and deform with the flow. Drag, or focus the
+cabinet and use the arrow keys, to look around. **Pause / Resume** controls
+movement, **Clear** empties the drawing pad, and **Reset** restores the default cloud.
 
-## Run / 运行
+## Run
 
-With Node.js 18 or later, run from this folder. No packages need installing.
-
-使用 Node.js 18 或以上版本，在本文件夹运行，无需安装额外依赖。
+With Node.js 18 or later, run from this folder. No extra packages or online
+services are needed.
 
 ```bash
 node server.mjs
 ```
 
-Open / 打开：<http://127.0.0.1:8000>. Stop / 停止：Ctrl+C.
+Open <http://127.0.0.1:8000>. Stop: Ctrl+C.
 
-## Limits / 局限
+## Limits
 
-One outline at a time; thickness is estimated. Requires WebGL 2. Drawings stay
-in memory and disappear on reload. Graphics assets are local, so it runs without
-internet. A real user trial is still to do.
-
-一次画一个轮廓，厚度由程序估算。需要 WebGL 2，刷新后绘画不会保留。图形资源都在本地，可以断网运行。实际用户试用还没有完成。
+All devices use 32,768 particles at native pixel resolution, with bloom,
+reflections and shadows. WebGL 2 and floating-point render targets are required;
+slower devices may lag. One closed outline at a time; thickness is estimated.
+Drawings are not saved after reload.

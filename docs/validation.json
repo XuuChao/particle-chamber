@@ -1,0 +1,238 @@
+{
+  "date": "2026-11-02",
+  "measurement": "Native Intel Iris Xe hardware in headless Chrome, while recording scripted pointer input. Includes capture overhead; not a benchmark for every visitor device.",
+  "viewport": {
+    "width": 1080,
+    "height": 1186
+  },
+  "particles": 32768,
+  "pixelRatio": 1,
+  "renderer": "ANGLE (Intel, Intel(R) Iris(R) Xe Graphics (0x0000A7A0) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+  "bloom": true,
+  "reflection": true,
+  "shadows": true,
+  "simulation": {
+    "fluidGrid": [
+      32,
+      32,
+      32
+    ],
+    "pressureIterations": 12,
+    "particleCount": 32768,
+    "particleReplenishmentSeconds": [
+      4.5,
+      7.0
+    ],
+    "description": "Shared velocity, viscosity and pressure projection inside the glass cabinet; no spherical collision or radial confinement. Drawn shapes retain soft shape memory."
+  },
+  "motion": {
+    "sequence": "Idle 2s; sweep 1s; circle 2s; leave the wake to decay 5s. Background motion continues.",
+    "meanFrameMs": 38.743,
+    "meanFps": 25.8,
+    "maxFrameMs": 100
+  },
+  "entrainment": {
+    "method": "Two identical 32-cubed Eulerian fluid grids and 32768 advected particles at 1/60-second steps. Only one receives a short stroke. The neighbour sample lies outside the directly forced capsule; the far sample is over 1.3 scene units away.",
+    "idle": {
+      "fluidRms": 0,
+      "fluidMax": 0,
+      "coreRms": 0,
+      "neighbourRms": 0,
+      "farRms": 0,
+      "particleRms": 0,
+      "ambientRms": 0.09771238722958285
+    },
+    "stroke": {
+      "fluidRms": 0.155774733530231,
+      "fluidMax": 2.0985342112918977,
+      "coreRms": 1.0396139807713587,
+      "neighbourRms": 0.1408450091147034,
+      "farRms": 0.027072280360681482,
+      "particleRms": 0.11816738721707402
+    },
+    "after1s": {
+      "fluidRms": 0.046459122273406935,
+      "fluidMax": 0.4501292774940258,
+      "coreRms": 0.2048574291811503,
+      "neighbourRms": 0.07097886342148149,
+      "farRms": 0.009415701713202893,
+      "particleRms": 0.33979378731963844
+    },
+    "after4s": {
+      "fluidRms": 0.00225122223117563,
+      "fluidMax": 0.01739209112572108,
+      "coreRms": 0.007083007551126101,
+      "neighbourRms": 0.003382056848457351,
+      "farRms": 0.001085888430196428,
+      "particleRms": 0.34543292438949025
+    },
+    "after8s": {
+      "fluidRms": 4.676688089314928e-05,
+      "fluidMax": 0.00031171565853661354,
+      "coreRms": 0.00013347864544537946,
+      "neighbourRms": 7.11410453652479e-05,
+      "farRms": 2.3784077940651486e-05,
+      "particleRms": 0.042045502127242826
+    },
+    "errors": []
+  },
+  "mobileEmulation": {
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "pixelRatio": 3,
+    "canvas": {
+      "width": 1170,
+      "height": 2532
+    },
+    "particles": 32768,
+    "allEffectsEnabled": true,
+    "touchDrawingPassed": true
+  },
+  "checksPassed": [
+    "background motion with no pointer input",
+    "shared fluid transports motion into surrounding unforced cells",
+    "wake decays while background motion continues",
+    "local-only network",
+    "empty, point and straight-line input",
+    "heart, circle and concave volume",
+    "paused GPU state and rendered pixels",
+    "paused generation and resume",
+    "rotation, clear, reset and Escape",
+    "wide and portrait framing",
+    "context-loss recovery",
+    "missing WebGL and floating-point capability messages",
+    "10-second enclosure stress test",
+    "particles can occupy cabinet corners outside the former spherical limit",
+    "fixed cabinet boundary while orbiting the camera",
+    "restrained side drawing entry, no filled button or Sphere label"
+  ],
+  "visualReview": "The user requested clear fine particles, the cabinet as the activity boundary, and a restrained side drawing button. This revision awaits user review.",
+  "humanUserTrial": "Not yet performed; automated checks do not replace the course user trial.",
+  "generatedAt": "2026-11-02T00:48:27+08:00",
+  "boundaryQA": {
+    "boundary": {
+      "minimumRadiusAfterFirstStep": 2.382088325106608,
+      "seconds": 10,
+      "violations": 0,
+      "nonFinite": 0,
+      "exactWall": 0,
+      "bounds": {
+        "min": [
+          -1.5650000000000002,
+          -1.715,
+          -1.29
+        ],
+        "max": [
+          1.5650000000000002,
+          1.695,
+          1.29
+        ]
+      }
+    },
+    "orbit": "Camera changes, paused particle positions stay unchanged, particle group is not rotated.",
+    "framing": [
+      {
+        "width": 1080,
+        "height": 1186,
+        "yaw": 0,
+        "pitch": 0,
+        "maxNdc": 0.7841518251346158
+      },
+      {
+        "width": 1080,
+        "height": 1186,
+        "yaw": 1.6,
+        "pitch": 0,
+        "maxNdc": 0.7602793091028095
+      },
+      {
+        "width": 1080,
+        "height": 1186,
+        "yaw": 3.14,
+        "pitch": 0.65,
+        "maxNdc": 0.8393910857581535
+      },
+      {
+        "width": 1080,
+        "height": 1186,
+        "yaw": -1.5,
+        "pitch": -0.35,
+        "maxNdc": 0.7930295950230641
+      },
+      {
+        "width": 1440,
+        "height": 900,
+        "yaw": 0,
+        "pitch": 0,
+        "maxNdc": 0.8609622979660102
+      },
+      {
+        "width": 1440,
+        "height": 900,
+        "yaw": 1.6,
+        "pitch": 0,
+        "maxNdc": 0.8896484134315825
+      },
+      {
+        "width": 1440,
+        "height": 900,
+        "yaw": 3.14,
+        "pitch": 0.65,
+        "maxNdc": 0.9134026126014293
+      },
+      {
+        "width": 1440,
+        "height": 900,
+        "yaw": -1.5,
+        "pitch": -0.35,
+        "maxNdc": 0.9122768626827945
+      },
+      {
+        "width": 800,
+        "height": 1100,
+        "yaw": 0,
+        "pitch": 0,
+        "maxNdc": 0.8609622979660102
+      },
+      {
+        "width": 800,
+        "height": 1100,
+        "yaw": 1.6,
+        "pitch": 0,
+        "maxNdc": 0.8896484134315825
+      },
+      {
+        "width": 800,
+        "height": 1100,
+        "yaw": 3.14,
+        "pitch": 0.65,
+        "maxNdc": 0.9134026126014293
+      },
+      {
+        "width": 800,
+        "height": 1100,
+        "yaw": -1.5,
+        "pitch": -0.35,
+        "maxNdc": 0.9122768626827945
+      }
+    ],
+    "errors": [],
+    "coordinateOriginWorld": [
+      0,
+      0.2,
+      0
+    ]
+  },
+  "rendering": {
+    "pointCoreCssPixelRange": [
+      1,
+      2.4
+    ],
+    "densityPostBlur": false,
+    "velocityStreaks": false,
+    "bloomEnabled": true,
+    "nativeDevicePixelRatio": true
+  }
+}

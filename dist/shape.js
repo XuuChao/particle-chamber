@@ -4,11 +4,20 @@ const MASK_SIZE = 192;
 export function spherePositions(count, random = Math.random) {
   const positions = new Float32Array(count * 3);
   for (let i = 0; i < count; i++) {
-    const y = random() * 2 - 1;
-    const angle = random() * Math.PI * 2;
-    const radius = Math.cbrt(random()) * .96;
-    const ring = Math.sqrt(1 - y * y);
-    positions.set([Math.cos(angle) * ring * radius, y * radius, Math.sin(angle) * ring * radius], i * 3);
+    // Density tapers through a broad outer region instead of stopping at the
+    // surface of a uniformly filled ball. Small wisps vary in all directions.
+    let x,y,z;
+    do {
+      const height=random()*2-1,angle=random()*Math.PI*2;
+      const radius=Math.cbrt(random())*1.24,ring=Math.sqrt(1-height*height);
+      x=Math.cos(angle)*ring*radius;y=height*radius;z=Math.sin(angle)*ring*radius;
+      const edge=Math.min(1,Math.max(0,(radius-.48)/.76));
+      const radialDensity=1-edge*edge*(3-2*edge);
+      const wisps=.5+.5*Math.sin(x*3.1+Math.sin(z*2.4))
+        *Math.sin(y*3.6+Math.sin(x*2.7));
+      if(random()<radialDensity*(.55+.45*wisps))break;
+    } while(true);
+    positions.set([x,y,z],i*3);
   }
   return positions;
 }
@@ -87,10 +96,13 @@ export function contourVolume(points, count, random = Math.random) {
       if (weights[middle] < pick) low = middle + 1; else high = middle;
     }
     const cell = cells[low];
+    const z = i < count * .7
+      ? (random() < .5 ? -1 : 1) * cell.depth * (.93 + random() * .07)
+      : (random() * 2 - 1) * cell.depth;
     positions.set([
       (cell.x + random() - MASK_SIZE / 2) * worldScale,
       (MASK_SIZE / 2 - cell.y - random()) * worldScale,
-      (random() * 2 - 1) * cell.depth,
+      z,
     ], i * 3);
   }
   return positions;

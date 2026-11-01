@@ -5,7 +5,8 @@
   "description": "An interactive particle artwork for SD5913 Assignment 3.",
   "type": "module",
   "scripts": {
-    "dev": "node server.mjs"
+    "dev": "node server.mjs",
+    "test": "node --test"
   },
   "engines": {
     "node": ">=18"

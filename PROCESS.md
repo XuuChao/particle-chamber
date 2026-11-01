@@ -1,9 +1,11 @@
-I provided a particle-effect video and decided to make a web page. Codex helped me set up the project structure.
+I provided a particle-effect video and decided to make a web page where people
+could draw their own shapes. Codex helped generate the project structure and
+the particle, drawing and volume code.
 
-我提供了粒子效果视频，决定做成网页。Codex 帮我生成了项目骨架。
+I chose one default cloud and a drawing pad instead of three presets. I rejected
+the early magnifier-like motion, then kept Codex's shared-flow approach. I later
+asked for clear grains, the cabinet as the boundary and a simple side button.
 
-Next, I asked for one default sphere and a drawing pad instead of three preset
-shapes. I chose a closed outline with rounded volume, making drawing the main
-interaction. Codex generated the particle, drawing and volume code.
-
-接着我提出只保留一个默认球体，加入画板，不用三种预设形态。我选择闭合轮廓和圆润鼓起的体积，让画图成为主要交互。Codex 生成了粒子、绘画和体积转换代码。
+Most recently, I asked for a disturbance radius of 0.3 and three successive
+halvings of the drawn shape's restoring force, leaving 12.5% of its original strength.
+Codex also limited the camera's rotation after it caused a black screen.
